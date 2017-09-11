@@ -57,7 +57,7 @@ def check_connection(connected, config):
 def on_connected():
 	""" Runs the commands in the OnConnected text file """
 	print("Connected")
-	file = open("OnConnected.txt", "r")
+	file = open(os.path.join(os.path.abspath(os.path.dirname(__file__)), "OnConnected.txt"), "r")
 	for command in file.readlines():
 		if command.strip() != "":
 			os.system(command)
@@ -65,7 +65,7 @@ def on_connected():
 def on_disconnected():
 	""" Runs the commands in the OnDisconnected text file """
 	print("Disconnected")
-	file = open("OnDisconnected.txt", "r")
+	file = open(os.path.join(os.path.abspath(os.path.dirname(__file__)), "OnDisconnected.txt"), "r")
 	for command in file.readlines():
 		if command.strip() != "":
 			os.system(command)
